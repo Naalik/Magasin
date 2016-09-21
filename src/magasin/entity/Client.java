@@ -6,6 +6,7 @@
 package magasin.entity;
 
 import java.io.Serializable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +23,14 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private String nom;
+    private String prenom;
+    private String login;
+    private String password;
+    private String email;
+    @Embedded
+    private Adresse adresse;
 
     public Long getId() {
         return id;

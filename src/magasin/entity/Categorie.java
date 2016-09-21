@@ -22,6 +22,8 @@ public class Categorie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private String nom;
 
     public Long getId() {
         return id;
@@ -54,6 +56,14 @@ public class Categorie implements Serializable {
     @Override
     public String toString() {
         return "magasin.entity.Categorie[ id=" + id + " ]";
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
     
 }

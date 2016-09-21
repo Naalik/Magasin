@@ -5,6 +5,7 @@
  */
 package magasintest.test;
 
+import javax.persistence.Persistence;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,6 +17,7 @@ public class MagasinTest {
     
     @Test
     public void MagasinTest() {
+        Persistence.createEntityManagerFactory("PU");
     }
     
 }

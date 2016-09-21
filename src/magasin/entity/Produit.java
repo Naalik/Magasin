@@ -22,6 +22,11 @@ public class Produit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private String nom;
+    private String description;
+    private Double prix;
+    private Integer stock;
 
     public Long getId() {
         return id;
@@ -54,6 +59,38 @@ public class Produit implements Serializable {
     @Override
     public String toString() {
         return "magasin.entity.Produit[ id=" + id + " ]";
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Double prix) {
+        this.prix = prix;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
     
 }
