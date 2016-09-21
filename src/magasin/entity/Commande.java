@@ -14,6 +14,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -87,6 +89,16 @@ public class Commande implements Serializable {
     public void setStatutCommande(StatutCommande statutCommande) {
         this.statutCommande = statutCommande;
     }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    
     
     public enum ModePaiement{
         CB,
@@ -126,6 +138,9 @@ public class Commande implements Serializable {
     private ModePaiement modePaiement;
     @Enumerated(EnumType.STRING)
     private StatutCommande statutCommande;
+    @JoinColumn(name = "id_client")//jointure
+    @ManyToOne//type de relation
+    private Client client;
 
     public Long getId() {
         return id;

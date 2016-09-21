@@ -6,11 +6,14 @@
 package magasin.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -31,6 +34,16 @@ public class Client implements Serializable {
     private String email;
     @Embedded
     private Adresse adresse;
+    @OneToMany(mappedBy = "client")
+    private List<Commande> commandes = new ArrayList<>();
+
+    public List<Commande> getCommandes() {
+        return commandes;
+    }
+
+    public void setCommandes(List<Commande> commandes) {
+        this.commandes = commandes;
+    }
 
     public Long getId() {
         return id;
@@ -112,5 +125,7 @@ public class Client implements Serializable {
     public void setAdresse(Adresse adresse) {
         this.adresse = adresse;
     }
+
+    
     
 }
